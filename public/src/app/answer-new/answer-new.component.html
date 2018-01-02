@@ -1,0 +1,21 @@
+<div>
+  <button [routerLink]="['/dashboard']">Home</button>
+  <p><a [routerLink]="['/question', question._id]">Go back to Question</a></p>
+  <button class ="buttons" (click)="logout()">Logout</button>
+</div>
+<div>
+    <h1>{{question.question}}</h1>
+    <h2>{{question.description}}</h2>
+</div>
+<div>
+  <form (submit)="create()">
+  <label for="">Answer</label>
+  <input type="text" name="answer" [(ngModel)]="Answer.answer">
+  <label for="">Detail(optional)</label>
+  <input type="text" name="suggestions" [(ngModel)]="Answer.suggestions">
+  <input type="submit" value="Create Answer">
+</form>
+</div>
+<div>
+    <p *ngFor="let error of errors">{{ errors }}</p>
+</div>

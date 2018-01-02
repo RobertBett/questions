@@ -1,0 +1,15 @@
+<div>
+  <button [routerLink]="['/dashboard']" class="buttons">Home</button>
+  <button class ="buttons" (click)="logout()">Logout</button>
+</div>
+<div>
+  <form (submit)="createQuestion()">
+  <h1>Question</h1>
+  <textarea name="question"[(ngModel)]="newQuestion.question" cols="30" rows="10"></textarea>
+  <button [routerLink]="['/dashboard']" class="buttons">cancel</button>
+  <input type="submit" value="Create Question">
+  </form>  
+</div>
+<div>
+    <p *ngFor="let error of errors">{{ errors }}</p>
+  </div>

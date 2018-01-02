@@ -1,0 +1,22 @@
+<div>
+    <button [routerLink]="['/dashboard']">Home</button>
+  <button><a [routerLink]="['/answer', question._id]">Answer this Question</a></button>
+  <button class ="buttons" (click)="logout()">Logout</button>
+</div>
+<div>
+    <h1>{{question.question}}</h1>
+    <h2>{{question.description}}</h2>
+</div>
+<div>
+    <table>
+        <tr>
+             <th>Answer</th>
+             <th>likes</th>
+         </tr>
+         <tr *ngFor="let answer of question.answer">
+             <td>{{answer.answer}}</td>
+             <td>{{answer.like}}</td>
+             <td><button (click)="update(answer._id)">like</button></td>
+         </tr>
+         </table>
+</div>

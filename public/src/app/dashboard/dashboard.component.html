@@ -1,0 +1,27 @@
+<h1>Welcome! {{currentUser.name}}</h1>
+
+<div>
+    <button class ="buttons" (click)="logout()">Logout</button>
+    <button [routerLink]="['/create']" class="buttons">Add a New Question</button>
+</div>
+<div>
+    <h2>Current Questions</h2>
+    <div>
+        <label for="">Search by Name:</label>
+        <input [(ngModel)]="searchText" placeholder="search names here">
+    </div>
+    <table>
+   <tr>
+        <th>Name</th>
+        <th>Question</th>
+        <th>Answer</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let question of questions | filter :searchText">
+        <td>{{question.user.name}}</td>
+        <td><a [routerLink]="['/question', question._id]">{{ question.question }}</a></td>
+        <td>{{ question.answer.length}}</td>
+        <td><a [routerLink]="['/answer', question._id]">Answer</a></td>
+    </tr>
+    </table>
+</div>
